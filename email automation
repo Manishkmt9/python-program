@@ -1,0 +1,21 @@
+import smtplib
+from email.message import EmailMessage
+
+sender_email = "kmtmanish9116@gmail.com"
+sender_password = "Yamndhgfyghy"
+
+receiver_email = "kmtmanish911641@gmail.com"
+
+
+msg = EmailMessage()
+msg['Subject'] = "Test Email from Python"
+msg['From'] = sender_email
+msg['To'] = receiver_email
+
+msg.set_content("Hello! This email was sent using Python.")
+
+with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+    server.login(sender_email, sender_password)
+    server.send_message(msg)
+
+print(" Email sent successfully!")
