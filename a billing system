@@ -1,0 +1,35 @@
+import streamlit as st
+
+st.title("Simple Billing System")
+
+item = st.text_input("Enter Item Name:")
+price = st.number_input("Enter Price (Rs):", min_value=0.0)
+qty = st.number_input("Enter Quantity:", min_value=1)
+
+
+if st.button("Calculate Total"):
+    amount = price * qty
+    st.success(f"Total Price = ₹ {amount}")
+
+    
+    bill_text = f"""
+        SHREE BALAJI RESTAURANT
+        ---------------------------
+        Item: {item}
+        Price: ₹{price}
+        Quantity: {qty}
+        ---------------------------
+        Total Bill: ₹{amount}
+        ---------------------------
+        Thank You! Visit Again
+    """
+
+    st.text_area("Generated Bill", bill_text, height=200)
+
+
+    st.download_button(
+        label="Download Bill (.txt)",
+        data=bill_text,
+        file_name="bill.txt",
+        mime="text/plain"
+    )
