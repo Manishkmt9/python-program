@@ -1,0 +1,12 @@
+age = int(input("Enter the age : "))
+ticket = input("Enter 0 for True and 1 for False ")
+if age > 18 :
+    print("you can watch the movie ")
+    if ticket == True :
+        print("you can watch the movie ")
+
+elif age < 15:
+    prinit("you can watch the movie with your parents ")
+
+else :
+    print("not allowed " ) 
