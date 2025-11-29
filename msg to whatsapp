@@ -1,0 +1,15 @@
+pip install pywhatkit
+import pywhatkit
+
+phone_number = "+919xxxxxxx4"
+
+message = "Hello! This message is sent using Python."
+
+pywhatkit.sendwhatmsg_instantly(
+    phone_number,
+    message,
+    wait_time=10,
+    tab_close=True
+)
+
+print("Message sent successfully!")
