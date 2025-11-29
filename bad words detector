@@ -1,0 +1,13 @@
+badwords = ["mc","bc"]
+user = input("enter your msg :")
+words = user.split()
+newwords = []
+for w in words:
+    if w.lower() in badwords:
+        newwords.append("*********")
+    else:
+        newwords.append(w)    
+result = " ".join(newwords)  
+print("filtered msg:",result)
+        
+        
