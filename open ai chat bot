@@ -1,0 +1,23 @@
+import streamlit as st
+import google.generativeai as genai
+
+key="AIzaSyC0Ernw0B7xYmrRQF11MZN-E4Xswer-J20"
+genai.configure(api_key=key)
+model=genai.GenerativeModel("gemini-2.5-flash")
+st.header("MANISH AI ")
+st.title("AI chat bot")
+
+q=st.text_input("Search")
+
+b=st.button("CLICK ME")
+
+if b:
+    if q.lower()=="exit":
+        st.write("Byeeeeeeeeeeeeeeee")
+    else:
+        try:
+            r=model.generate_content(q)
+            st.write("result :",r.text)
+        except Exception as e:
+            st.error(e)
+            st.write("ERROR")
